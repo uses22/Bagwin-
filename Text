@@ -1,0 +1,20 @@
+
+---
+
+### **📄 2. Fichier `netlify.toml`**
+```toml
+[build]
+  command = "chmod +x scripts/deploy.sh && ./scripts/deploy.sh"
+  publish = "build/web"
+
+[headers]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'wasm-unsafe-eval';
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: https://*.googleapis.com;
+      connect-src 'self' https://*.firebaseio.com;
+    """
+    X-Frame-Options = "DENY"
