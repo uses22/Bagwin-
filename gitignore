@@ -1,0 +1,11 @@
+# Flutter
+/build/
+/.dart_tool/
+
+# Environnement
+.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
